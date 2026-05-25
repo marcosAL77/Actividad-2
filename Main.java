@@ -1,36 +1,20 @@
-package Act2T2;
+public class  Main {
 
-public class Main {
+    public static void main(String[] args)
+    {
+        CuerpoCeleste estrella = new CuerpoCeleste("Estrella x", "Gases");
 
-    public static void main(String[] args) {
-        Fruta naranja = new Fruta("Naranja", 10.0, 500.0, 1200.0);
+        Observacion obs1 = new Observacion(10.5, "N", 20.3, "E",
+                "Enero-Febrero", 4.5, "Años luz");
 
-        Periodo primavera = new Periodo("Primavera", 5.0);
-        Periodo invierno = new Periodo("Invierno", 2.0);
+        Observacion obs2 = new Observacion(12.0, "N", 25.0, "E",
+                "Marzo-Abril", 4.6, "Años luz");
 
-        System.out.println("--- GESTIÓN DE PERIODOS ---");
-        naranja.agregarPeriodo(primavera);
-        naranja.agregarPeriodo(invierno);
+        estrella.agregarObservaciones(obs1);
+        estrella.agregarObservaciones(obs2);
 
-        System.out.println("\n--- REPORTE: TEMPORADA DE PRIMAVERA ---");
-        System.out.println("Fruta: " + naranja.getNombre());
-
-        double costoPrimavera = naranja.calcularCostoTotal(primavera);
-        System.out.println("Costo total estimado: $" + costoPrimavera);
-
-        double gananciaPrimavera = naranja.calcularGanancias(primavera);
-        System.out.println("Ganancia neta estimada: $" + gananciaPrimavera);
-
-        System.out.println("\n--- REPORTE: TEMPORADA DE INVIERNO ---");
-        double costoInvierno = naranja.calcularCostoTotal(invierno);
-        System.out.println("Costo total estimado: $" + costoInvierno);
-
-        double gananciaInvierno = naranja.calcularGanancias(invierno);
-        System.out.println("Ganancia neta estimada: $" + gananciaInvierno);
-
-        System.out.println("\n--- ELIMINANDO PERIODO ---");
-        naranja.eliminarPeriodo(invierno);
-        System.out.println("Periodos restantes en la lista: " + naranja.getListaDePeriodos().size());
+        double desplazamiento = estrella.calcularDesplazamiento(obs1, obs2);
+        System.out.println("*** EJEMPLO ***");
+        System.out.println("Desplazamineto: " + desplazamiento);
     }
-
 }
